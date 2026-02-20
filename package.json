@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --exec npx tsx src/server.ts"
+    "dev":"next dev",
+    "build":"next build",
+    "start":"next start"
   },
   "keywords": [],
   "author": "",
