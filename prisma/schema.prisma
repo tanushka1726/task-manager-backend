@@ -1,0 +1,27 @@
+datasource db {
+  provider = "postgresql"
+ 
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  name         String
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  password     String
+  refreshToken String?
+  tasks        Task[]
+}
+
+model Task {
+  id        Int      @id @default(autoincrement())
+  title     String
+  description String 
+  iscompleted Boolean  @default(false)
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+}
